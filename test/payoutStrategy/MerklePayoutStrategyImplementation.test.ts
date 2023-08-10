@@ -31,7 +31,7 @@ type DistributionWithMerkleProof = Distribution & {
 
 const RANDOM_BYTES32 = randomBytes(32);
 
-describe("MerklePayoutStrategyImplementation", function () {
+describe.only("MerklePayoutStrategyImplementation", function () {
   let user: SignerWithAddress;
 
   // AlloSettings
@@ -458,7 +458,7 @@ describe("MerklePayoutStrategyImplementation", function () {
         expect(balance).to.equal(200);
       });
 
-      it("SHOULD payout successfully using native", async () => {
+      it.only("SHOULD payout successfully using native", async () => {
         const [user] = await ethers.getSigners();
 
         const randomWallet = ethers.Wallet.createRandom();
@@ -510,6 +510,11 @@ describe("MerklePayoutStrategyImplementation", function () {
           [1, distributions[1][1], distributions[1][2], validMerkleProof, distributions[1][3]],
         ];
         const distribution = arrayToDistribution(payouts);
+
+        console.log("distributions", distributions);
+        console.log("tree.root", tree.root)
+        console.log("proof0.root", tree.getProof(distributions[0]))
+        console.log("proof1.root", validMerkleProof)
 
         const tx = // @ts-ignore
           await merklePayoutStrategy[
