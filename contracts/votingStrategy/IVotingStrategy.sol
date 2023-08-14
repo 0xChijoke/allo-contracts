@@ -30,7 +30,7 @@ abstract contract IVotingStrategy {
 
   /**
    * @notice Invoked by RoundImplementation on creation to
-   * set the round for which the voting contracts is to be used
+   * set the round for which the voting contract is to be used
    *
    */
   function init() external virtual {
@@ -39,11 +39,11 @@ abstract contract IVotingStrategy {
   }
 
   /**
-   * @notice Invoked by RoundImplementation to allow voter to case
+   * @notice Invoked by RoundImplementation to allow voter to cast
    * vote for grants during a round.
    *
    * @dev
-   * - allows contributor to do cast multiple votes which could be weighted.
+   * - allows contributor to cast multiple votes which could be weighted.
    * - should be invoked by RoundImplementation contract
    * - ideally IVotingStrategy implementation should emit events after a vote is cast
    * - this would be triggered when a voter casts their vote via grant explorer
