@@ -43,10 +43,10 @@ contract QuadraticFundingVotingStrategyImplementation is IVotingStrategy, Initia
 
   /**
    * @notice Invoked by RoundImplementation which allows
-   * a voted to cast weighted votes to multiple grants during a round
+   * a voter to cast weighted votes to multiple grants during a round
    *
    * @dev
-   * - more voters -> higher the gas
+   * - more votes -> higher the gas
    * - this would be triggered when a voter casts their vote via grant explorer
    * - can be invoked by the round
    * - supports ERC20 and Native token transfer
